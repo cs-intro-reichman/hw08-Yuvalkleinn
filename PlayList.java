@@ -35,32 +35,55 @@ class PlayList {
      *  If the list is full, does nothing and returns false.
      *  Otherwise, appends the track and returns true. */
     public boolean add(Track track) {
-        //// replace the following statement with your code
-        return true;
+        if (this.size < this.maxSize) {
+            tracks[this.size] = track;
+            this.size++;
+            return true;
+        }
+        return false;
     }
 
     /** Returns the data of this list, as a string. Each track appears in a separate line. */
     //// For an efficient implementation, use StringBuilder.
     public String toString() {
-        //// replace the following statement with your code
+        String list = "";
+
+        for (int i = 0; i < this.size; i++) {
+            list += tracks[i].toString() + "\n";
+        }
         return "";
     }
 
     /** Removes the last track from this list. If the list is empty, does nothing. */
      public void removeLast() {
-        //// replace this comment with your code
+        if (this.size > 0) {
+            tracks [this.size - 1] = null;
+            this.size--;
+        }
     }
     
     /** Returns the total duration (in seconds) of all the tracks in this list.*/
     public int totalDuration() {
-        //// replace the following statement with your code
+        int duration = 0;
+
+        if (this.size > 0) {
+            for (int i = 0; i < this.size; i++) {
+                duration += tracks[i].getDuration();
+            }
+            return duration;
+        }
+
         return 0;
     }
 
     /** Returns the index of the track with the given title in this list.
      *  If such a track is not found, returns -1. */
     public int indexOf(String title) {
-        //// replace the following statement with your code
+        for (int i = 0; i < this.size; i++) {
+            if (tracks[i].getTitle().equals(title)) {
+                return i;
+            }
+        }
         return -1;
     }
 

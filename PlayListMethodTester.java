@@ -6,7 +6,7 @@ public class PlayListMethodTester {
             return;
         }
 
-        switch (args[0]) {
+        switch (args[0]) {    
             case "add":
                 testAdd();
                 break;
@@ -153,5 +153,4 @@ public class PlayListMethodTester {
             System.out.println("testTitleOfShortestTrack: FAIL. Expected 'Yesterday', got " + shortestTrack);
         }
     }
-
 }
